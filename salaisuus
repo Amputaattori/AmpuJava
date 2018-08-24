@@ -1,15 +1,15 @@
-import java.util.Scanner;
+import java.util.Scanner; //skannerin "kirjasto" sisään jotta sitä voidaan käyttää
  
-public class YmpyranKehanPituus {
+public class YmpyranKehanPituus { 
     public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
+        Scanner lukija = new Scanner(System.in); // otetaan scanneri käyttöön ja nimetään se lukijaksi
  
-        System.out.print("Anna ympyrän säde: ");
-        int sade = Integer.parseInt(lukija.nextLine());
+        System.out.print("Anna ympyrän säde: "); // tulostetaan kysymys
+        int sade = Integer.parseInt(lukija.nextLine()); // tökätään kokonaisluku sadeeseen seuraava kokonaisluku 
         
         
-        double keha = 2 * Math.PI * sade;
-        System.out.println("Ympyrän kehä: " + keha);
+        double keha = 2 * Math.PI * sade; // piilossa tapahtuva laskutoimitus= desimaaliluku keha muuttujaan laitetaan laskutoimituksen tulos
+        System.out.println("Ympyrän kehä: " + keha); // ulostetaan kehä luku yhdessä merkkijonon kanssa
     }
 }
 
@@ -26,11 +26,11 @@ public class Ylinopeussakko {
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
  
-        System.out.print("Kerro nopeus: ");
-        int nopeus = Integer.parseInt(lukija.nextLine());
+        System.out.print("Kerro nopeus: "); // ulostetaan kysymys
+        int nopeus = Integer.parseInt(lukija.nextLine()); // kaapataan kokonaislukumuuttuja nopeuteen seuraava inputti 
        
         
-        if (nopeus>120){
+        if (nopeus>120){ //if suluissa oleva on totta -> suoritetaan aaltosuluissa oleva asia. Muuten ei
             System.out.println("Ylinopeussakko!");
         }
         
