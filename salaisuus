@@ -1,6 +1,6 @@
 (15)--------------------------------------------------------------------------
 
-import java.util.Scanner; //skannerin "kirjasto" sisään jotta sitä voidaan käyttää + m
+import java.util.Scanner; //skannerin "kirjasto" sisään jotta sitä voidaan käyttää 
  
 public class YmpyranKehanPituus { 
     public static void main(String[] args) {
