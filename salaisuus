@@ -1,98 +1,23 @@
-(15)-------------------------------------------------------------------------
-
-import java.util.Scanner; //skannerin "kirjasto" sisään jotta sitä voidaan käyttää 
- 
-public class YmpyranKehanPituus { 
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in); // otetaan scanneri käyttöön ja nimetään se lukijaksi
- 
-        System.out.print("Anna ympyrän säde: "); // tulostetaan kysymys
-        int sade = Integer.parseInt(lukija.nextLine()); // tökätään kokonaisluku sadeeseen seuraava kokonaisluku 
-        
-        
-        double keha = 2 * Math.PI * sade; // piilossa tapahtuva laskutoimitus= desimaaliluku keha muuttujaan laitetaan laskutoimituksen tulos
-        System.out.println("Ympyrän kehä: " + keha); // ulostetaan kehä luku yhdessä merkkijonon kanssa
-    }
-}
-
-
-
-(16)--------------------------------------------------------------------------
-
-
  
 import java.util.Scanner;
  
-public class Ylinopeussakko {
+public class SuurempiTaiYhtasuuri {
  
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
- 
-        System.out.print("Kerro nopeus: "); // ulostetaan kysymys
-        int nopeus = Integer.parseInt(lukija.nextLine()); // kaapataan kokonaislukumuuttuja nopeuteen seuraava inputti 
-       
+        System.out.print("Anna ensimmäinen luku: ");
+        int luku1 = Integer.parseInt(lukija.nextLine());
+        System.out.print("Anna toinen luku: ");
+        int luku2 = Integer.parseInt(lukija.nextLine());
         
-        if (nopeus>120){ //if suluissa oleva on totta -> suoritetaan aaltosuluissa oleva asia. Muuten ei
-            System.out.println("Ylinopeussakko!");
+        if (luku1 > luku2) {
+            System.out.println("Suurempi luku:" + luku1);
+        } else if (luku1 == luku2) {
+            System.out.println("Luvut ovat yhtä suuret!");
+        } else {
+            System.out.println("Suurempi luku:" + luku2);
         }
         
     }
 }
-
-(17)----------------------------------------------------------------------------------
-
-import java.util.Scanner;
  
-public class Orwell {
- 
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
- 
-        System.out.print("Anna luku: ");
-        int luku = Integer.parseInt(lukija.nextLine());
-       
-        
-        if (luku==1984){
-            System.out.println("Orwell");
-        } 
-    }
-}
-
-(18)----------------------------------------------------------------------------------
-
-import java.util.Scanner;
- 
-public class Wanha {
- 
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
- 
-        System.out.print("Anna vuosiluku: ");
-        int luku = Integer.parseInt(lukija.nextLine());
-       
-        
-        if (luku<2015){
-            System.out.println("Wanha!");
-        } 
-    }
-}
-
-(19)----------------------------------------------------------------------------------
-
-import java.util.Scanner;
- 
-public class PositiivinenLuku {
- 
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
- 
-        System.out.print("Anna luku: ");
-        int luku = Integer.parseInt(lukija.nextLine()); 
-        
-        if (luku > 0) {
-            System.out.println("Luku on positiivinen.");
-        } else {
-            System.out.println("Luku ei ole positiivinen.");
-        } 
-    }
-}
