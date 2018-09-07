@@ -1,68 +1,59 @@
-
+ 
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.layout.GridPane;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
  
-public class Maara extends Application {
+// Luokka (ohjelma) Puisevaa "perii" graafisen käyttöliittymän rakentamiseen
+// tarvittavia ominaisuuksia Application-luokalta (ohjelmalta)
+public class Puisevaa extends Application {
  
+    // Käyttöliittymän käynnistäminen kutsuu metodia alla olevaa
+    // metodia
     @Override
-    public void start(Stage stage) {
+    public void start(Stage ikkuna) throws Exception {
  
-        // luodaan ulkoasu ja määritetään käyttöliittymän komponenttien asettelu
-        GridPane root = new GridPane();
-        root.setVgap(10);
-        root.setHgap(5);
-        root.setPadding(new Insets(10));
+        // luodaan 640 pikseliä leveä ja 480 pikseliä korkea alusta
+        // piirtämiselle ja otetaan alustaan liittyvä piirtoväline
+        // käyttöön
+        Canvas piirtoalusta = new Canvas(640, 480);
+        GraphicsContext piirturi = piirtoalusta.getGraphicsContext2D();
  
-        // luodaan liukuri sekä tekstikenttä
-        Slider liukuri = new Slider(0, 100, 50);
-        liukuri.setId("liukuri");
-        liukuri.setShowTickMarks(true);
-        liukuri.setShowTickLabels(true);
-        liukuri.setMajorTickUnit(25);
-        liukuri.setBlockIncrement(5);
+        // kutsutaan piirtämiseen käytettävää metodia piirrä
+        // -- metodiin tullaan toteuttamaan piirtotoiminnallisuus
+        piirra(piirturi);
  
-        Label teksti = new Label("Kohtalaisesti.");
-        teksti.setId("teksti");
+        // asetetaan käyttöliittymän osat paikalleen ja 
+        // näytetään se käyttäjälle
+        Pane ruutu = new Pane(piirtoalusta);
+        Scene nakyma = new Scene(ruutu);
  
-        // liitetään liukuriin toiminnallisuus, jolla muutetaan tekstiä
-        liukuri.valueProperty().addListener((ObservableValue<? extends Number> ov, Number oldValue, Number newValue) -> {
-            int arvo = newValue.intValue();
- 
-            if (arvo == 0) {
-                teksti.setText("Ei lainkaan.");
-            } else if (arvo <=25){
-                teksti.setText("Vähän.");
-            } else if (arvo <=74){
-                teksti.setText("Kohtalaisesti.");
-            } else if (arvo <=99){
-                teksti.setText("Paljon.");
-            } else if (arvo ==100){
-                teksti.setText("Kaikki.");
-            } else {
-                teksti.setText("Error.");   
-            }
-        });
- 
-        // lisätään luodut elementit käyttöliittymään
-        root.add(liukuri, 0, 0);
-        root.add(teksti, 0, 1);
- 
-        // näytetään ohjelma
-        Scene scene = new Scene(root);
- 
-        stage.setTitle("");
-        stage.setScene(scene);
-        stage.show();
+        ikkuna.setTitle("Niin hyvää puuta!");
+        ikkuna.setScene(nakyma);
+        ikkuna.show();
     }
  
+    // Ohjelma käynnistetään metodilla public static void main. 
+    // Metodissa kutsutaan Application luokalta perittyä toiminnallisuutta, 
+    // joka lopulta suorittaa yllä kuvatun start-metodin
     public static void main(String[] args) {
-        launch(args);
+        launch(Puisevaa.class);
+    }
+ 
+    
+    // Oma piirra-metodimme, jonne toteutetaan piirtotoiminnallisuus
+    public static void piirra(GraphicsContext piirturi) {
+ 
+        // viivan piirtäminen kohdasta (0,0) kohtaan (100, 100)
+        
+        piirturi.strokeRect(0, 380, 640, 100);
+        for (int x = 0; x<600; x +=120){
+            piirturi.strokeLine(74 +x , 400, 74 + x, 200);
+            piirturi.strokeOval(34 +x , 120, 80, 80);
+        }
+        
     }
  
 }
