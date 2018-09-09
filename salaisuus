@@ -35,9 +35,7 @@ public class Puisevaa extends Application {
         ikkuna.show();
     }
  
-    // Ohjelma käynnistetään metodilla public static void main. 
-    // Metodissa kutsutaan Application luokalta perittyä toiminnallisuutta, 
-    // joka lopulta suorittaa yllä kuvatun start-metodin
+  
     public static void main(String[] args) {
         launch(Puisevaa.class);
     }
