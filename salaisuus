@@ -1,57 +1,17 @@
  
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import java.util.Scanner;
  
-// Luokka (ohjelma) Puisevaa "perii" graafisen käyttöliittymän rakentamiseen
-// tarvittavia ominaisuuksia Application-luokalta (ohjelmalta)
-public class Puisevaa extends Application {
+public class ParitonVaiParillinen {
  
-    // Käyttöliittymän käynnistäminen kutsuu metodia alla olevaa
-    // metodia
-    @Override
-    public void start(Stage ikkuna) throws Exception {
- 
-        // luodaan 640 pikseliä leveä ja 480 pikseliä korkea alusta
-        // piirtämiselle ja otetaan alustaan liittyvä piirtoväline
-        // käyttöön
-        Canvas piirtoalusta = new Canvas(640, 480);
-        GraphicsContext piirturi = piirtoalusta.getGraphicsContext2D();
- 
-        // kutsutaan piirtämiseen käytettävää metodia piirrä
-        // -- metodiin tullaan toteuttamaan piirtotoiminnallisuus
-        piirra(piirturi);
- 
-        // asetetaan käyttöliittymän osat paikalleen ja 
-        // näytetään se käyttäjälle
-        Pane ruutu = new Pane(piirtoalusta);
-        Scene nakyma = new Scene(ruutu);
- 
-        ikkuna.setTitle("Niin hyvää puuta!");
-        ikkuna.setScene(nakyma);
-        ikkuna.show();
-    }
- 
-  
     public static void main(String[] args) {
-        launch(Puisevaa.class);
-    }
+        Scanner lukija = new Scanner(System.in);                   // nimetään scanneri lukijaksi
+        System.out.print("Anna luku: ");                          
+        int arvo = Integer.parseInt(lukija.nextLine());            // luetaan kokonaisluku käyttäjältä ja asetetaan se muuttujaan arvo
  
-    
-    // Oma piirra-metodimme, jonne toteutetaan piirtotoiminnallisuus
-    public static void piirra(GraphicsContext piirturi) {
- 
-        // viivan piirtäminen kohdasta (0,0) kohtaan (100, 100)
-        
-        piirturi.strokeRect(0, 380, 640, 100);
-        for (int x = 0; x<600; x +=120){
-            piirturi.strokeLine(74 +x , 400, 74 + x, 200);
-            piirturi.strokeOval(34 +x , 120, 80, 80);
+        if ((arvo % 2) == 0){                                      // tarkastellaan arvoa
+            System.out.print("Luku" + arvo + " on parillinen.");
+        } else {
+            System.out.print("Luku" + arvo + " on pariton.");
         }
-        
     }
- 
 }
